@@ -56,7 +56,7 @@ const TrafficDashboard = ({ trafficData }) => {
       <div style={{ 
         marginBottom: '20px', 
         padding: '15px',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '	#ffe48d',
         borderRadius: '8px',
         textAlign: 'center'
       }}>
@@ -78,7 +78,7 @@ const TrafficDashboard = ({ trafficData }) => {
             style={{
               padding: '20px',
               borderRadius: '8px',
-              backgroundColor: 'white',
+              backgroundColor: '#fff5d3',
               boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
               border: `2px solid ${getSignalColor(signal.status)}`,
               position: 'relative'
@@ -109,7 +109,7 @@ const TrafficDashboard = ({ trafficData }) => {
             <div style={{ 
               marginBottom: '15px',
               padding: '10px',
-              backgroundColor: '#f5f5f5',
+              backgroundColor: 'white',
               borderRadius: '4px',
               color: '#000000'
             }}>
