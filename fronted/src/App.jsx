@@ -116,6 +116,8 @@ import React, { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 import TrafficMap from './components/TrafficMap';
 import TrafficDashboard from './components/TrafficDashboard';
+import Navbar from './components/Navbar';
+
 
 // Backend URL configuration
 const BACKEND_URL = 'http://localhost:5000';
@@ -269,16 +271,21 @@ function App() {
 
   return (
     <div style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>Smart Traffic System</h1>
+      <Navbar />
+      {/* <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>Smart Traffic System</h1> */}
       
       <div style={{ 
         padding: '10px', 
-        backgroundColor: status === 'Connected successfully' ? '#000000' : '#FFEBEE',
+        backgroundColor: status === 'Connected successfully' ? '	#E0E0E0' : '#fff5d3',
         borderRadius: '4px',
         marginBottom: '20px',
         textAlign: 'center'
       }}>
-        <strong>Status:</strong> {status}
+        
+        <strong style={{ color: '#000',  marginRight: '10px'}}>Status:</strong>  
+        <span style={{ color: status === 'Connected successfully' ? '#008000' : '#FF0000' }}>
+       {status}
+      </span>
       </div>
 
       {error && (
@@ -299,6 +306,41 @@ function App() {
       </div>
 
       <TrafficDashboard trafficData={trafficData} />
+
+      <div style={{ 
+  padding: '10px', 
+  backgroundColor: status === 'Connected successfully' ? '#E0E0E0' : '#fff5d3',
+  borderRadius: '4px',
+  marginBottom: '20px',
+  marginTop: '20px',
+  textAlign: 'center',
+  color: 'black'  // Ensure text color doesn't affect root font color
+}}>
+  <div 
+    style={{ 
+      marginTop: '10px', 
+      fontSize: '14px', 
+      fontWeight: 'bold', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center' 
+    }}
+  >
+     Real-Time Traffic Signal Tracking Using Live Traffic Images
+    <box-icon 
+      name='link-external' 
+      style={{ 
+        marginLeft: '5px', 
+        cursor: 'pointer', 
+        transition: 'transform 0.2s ease-in-out' 
+      }} 
+      onMouseOver={(e) => e.target.style.transform = 'scale(1.2)'} 
+      onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+      onClick={() => window.open('https://your-link-here.com', '_blank')}  
+    ></box-icon>
+  </div>
+</div>
+
 
       {/* Debug info */}
       <div style={{ 
